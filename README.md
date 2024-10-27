@@ -1,6 +1,7 @@
 # Zero-SQL with OpenAI
 
-![Uploading F8D04628-B5E5-4707-B1A1-5D61C8516FA0.jpeg…]()
+
+![F8D04628-B5E5-4707-B1A1-5D61C8516FA0](https://github.com/user-attachments/assets/543f901b-d2a3-4c93-85c6-cb283d10b782)
 
 
 ## Overview
