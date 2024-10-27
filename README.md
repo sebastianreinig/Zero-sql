@@ -1,6 +1,7 @@
 # Zero-SQL with OpenAI
 
-![Screenshot]()
+![Uploading F8D04628-B5E5-4707-B1A1-5D61C8516FA0.jpeg…]()
+
 
 ## Overview
 Zero-SQL is a web-based application that generates and executes SQL queries based on natural language input using OpenAI's API. The application is built with Flask and Python, providing a user-friendly interface for generating SQL queries without needing SQL knowledge. It also executes the generated SQL queries on a local SQLite database and displays the results in a table format.
