@@ -30,11 +30,47 @@ python app.py
 
 Once the server is running, you can access the web application at http://127.0.0.1:5000.
 
+## Messages
+The magic part is in the messages section. Here you can specify the tables and the output of the message.
+```python
+ system_context = """Given the following SQL tables, your job is to write queries given a user’s request.
+                            -- Tabelle für Produkte
+                            CREATE TABLE Produkte (
+                                ProduktID INT PRIMARY KEY AUTO_INCREMENT,
+                                Produktname VARCHAR(100) NOT NULL,
+                                Preis DECIMAL(10, 2) NOT NULL
+                            );
+
+                            -- Tabelle für Bestellungen
+                            CREATE TABLE Bestellungen (
+                                BestellungID INT PRIMARY KEY AUTO_INCREMENT,
+                                ProduktID INT NOT NULL,
+                                Menge INT NOT NULL,
+                                Bestelldatum DATE NOT NULL,
+                                Person VARCHAR(100) NOT NULL,
+                                FOREIGN KEY (ProduktID) REFERENCES Produkte(ProduktID)
+                            );
+                         """
+
+            response = client.chat.completions.create(
+                model="gpt-4o",
+                messages=[
+                    {"role": "system", "content": system_context},
+                    {"role": "user", "content": f"Generate the SQL query for: {user_input}. Only output the raw SQL query without any code block delimiters or markdown."}
+
+                ],
+                response_format={
+                    "type": "text"
+                }
+            )
+```
+
 ## Features
 Natural Language to SQL Query Conversion: Enter your question or query in natural language, and OpenAI will generate the SQL code.
 SQL Query Execution: The application automatically executes the generated SQL on a SQLite database.
 Results Display: The query results are displayed in a formatted table for easy viewing.
-How It Works
+
+## How It Works
 Enter your OpenAI API Key: Input your OpenAI API key to authenticate the request.
 Provide a Query in Plain Language: Type a question or query in natural language (e.g., "Show the top-selling product").
 Automatic SQL Generation: The application sends your query to OpenAI to generate the corresponding SQL statement.
