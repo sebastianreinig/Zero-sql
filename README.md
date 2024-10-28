@@ -15,6 +15,7 @@ To run this project, you'll need the following dependencies:
 Flask
 OpenAI API
 SQLite3
+
 You can install these dependencies using:
 
 ```bash
